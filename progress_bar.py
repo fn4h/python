@@ -1,35 +1,33 @@
 import time
+numero = int(input("Piensa en un número del 1 al 10: "))
+if(numero<0):
+    print("Mis trucos de adivinación sólo funcionan si el número es del 1 al 10!")
+if(numero>10):
+    print("Es un número demasiado grande!")
 # Print iterations progress
-def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '█', printEnd = "\r"):
-    """
-    Call in a loop to create terminal progress bar
-    @params:
-        iteration   - Required  : current iteration (Int)
-        total       - Required  : total iterations (Int)
-        prefix      - Optional  : prefix string (Str)
-        suffix      - Optional  : suffix string (Str)
-        decimals    - Optional  : positive number of decimals in percent complete (Int)
-        length      - Optional  : character length of bar (Int)
-        fill        - Optional  : bar fill character (Str)
-        printEnd    - Optional  : end character (e.g. "\r", "\r\n") (Str)
-    """
-    percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
-    filledLength = int(length * iteration // total)
-    bar = fill * filledLength + '-' * (length - filledLength)
-    print(f'\r{prefix} |{bar}| {percent}% {suffix}', end = printEnd)
+def printProgressBar (iteration, total, prefijo = '', sufijo = '', decimales = 1, longitud = 100, fill = '█', printEnd = "\r"):
+  
+    porcentaje = ("{0:." + str(decimales) + "f}").format(100 * (iteration / float(total)))
+    filledLength = int(longitud * iteration // total)
+    barra = fill * filledLength + '-' * (longitud - filledLength)
+    print(f'\r{prefijo} |{barra}| {porcentaje}% {sufijo}', end = printEnd)
     # Print New Line on Complete
     if iteration == total: 
         print()
 
 
 # A List of Items
-items = list(range(0, 57))
+items = list(range(0, 43))
 l = len(items)
 
 # Initial call to print 0% progress
-printProgressBar(0, l, prefix = 'Progress:', suffix = 'Complete', length = 50)
+printProgressBar(0, l, prefijo = 'Adivinando:', sufijo = 'Completado', longitud = 50)
 for i, item in enumerate(items):
     # Do stuff...
     time.sleep(0.1)
     # Update Progress Bar
-    printProgressBar(i + 1, l, prefix = 'Progress:', suffix = 'Complete', length = 50)
+    printProgressBar(i + 1, l, prefijo = 'Adivinando:', sufijo = 'Completado', longitud = 50)
+
+
+
+print("Listo! Has pensado en el", numero,".")
